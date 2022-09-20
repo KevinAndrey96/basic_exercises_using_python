@@ -18,8 +18,10 @@ def verificar_nit(NIT, digito):
     verification = 0
     nit_list = list(map(int, str(NIT)))
     verification += products_sum(nit_list, digit_list)
-    verification = verification % 11
-    if verification == digito or verification == 0:
+    residue = verification % 11
+    if residue == digito or residue == 0:
+        return True
+    if 11 - residue == digito:
         return True
     return False
 
